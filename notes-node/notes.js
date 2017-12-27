@@ -45,4 +45,4 @@ module.exports = {
     removeNote
 };
 
-//addNote: addNote is identical to addNote (because the kv pair are named the same and the value is avariable
+//addNote: addNote is identical to addNote (because the kv pair are named the same and the value is a variable
