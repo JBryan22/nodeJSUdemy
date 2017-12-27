@@ -1,6 +1,8 @@
 //global similar to window
 //process is similar to document (DOM)
 
+//to run app use: node <filename> --args (--title="")
+
 console.log('Starting app.js');
 
 const fs = require('fs');
@@ -30,7 +32,6 @@ if(command === 'add') {
     } else {
         console.log('Note not found');
     }
-    console.log(message);
 }  else if (command === 'remove') {
     var noteRemoved = notes.removeNote(argv.title);
     var message = noteRemoved ? 'Note was removed' : 'Note not found';
