@@ -4,15 +4,37 @@
 //to run app use: node <filename> --args (--title="")
 //to run app that updates when saving run nodemon instead of node
 
-console.log('Starting app.js');
-
 const fs = require('fs');
 const _ = require('lodash');
 const yargs = require('yargs');
 
 const notes = require('./notes.js');
 
-const argv = yargs.argv;
+const titleCommandOptions = {
+    describe: 'Title of note',
+    demand:true,
+    alias: 't'
+}
+const bodyCommandOptions = {
+    describe: 'Body of note',
+    demand:true,
+    alias: 'b'
+}
+
+const argv = yargs
+    .command('add', 'Add a new note', {
+        title: titleCommandOptions,
+        body: bodyCommandOptions
+    })
+    .command('list', 'List all notes')
+    .command('read', 'Read a note', {
+        title: titleCommandOptions
+    })
+    .command('remove', 'Remove a note', {
+        title: titleCommandOptions
+    })
+    .help()
+    .argv;
 var command  = argv._[0];
 console.log('Command:', command);
 console.log('Yargs', argv);
